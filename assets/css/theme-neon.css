@@ -1,0 +1,57 @@
+/* =============================================================
+   THEME-NEON.CSS
+   Cyan / magenta neon theme.
+   Used by: alife_styles.css only.
+
+   Load after base.css, instead of theme-amber.css.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap');
+
+:root {
+  /* Backgrounds */
+  --bg:           #050810;
+  --panel:        #090d1a;
+
+  /* Borders / dims */
+  --border:       #1a2240;
+  --border-hi:    #1a2240;   /* alias for base.css scrollbar token */
+  --dim:          #3a4a6a;
+
+  /* Neon accents */
+  --accent1:      #00ffe7;
+  --accent2:      #ff4fcb;
+  --accent3:      #ffe44f;
+  --accent-primary: var(--accent1);   /* drives base range thumb */
+
+  /* Text */
+  --text:         #c8d8f8;
+  --text-dim:     #4a6080;
+  --text-muted:   #3a4a6a;
+
+  /* Semantic */
+  --danger:       #ff4f4f;
+  --success:      #4fff9f;
+
+  /* Typography */
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-head:    'Orbitron', sans-serif;
+
+  /* Component tokens */
+  --panel-radius: 6px;
+  --glow1:        0 0 12px #00ffe766, 0 0 28px #00ffe722;
+  --glow2:        0 0 12px #ff4fcb66, 0 0 28px #ff4fcb22;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* Override base range thumb to use neon accent */
+input[type=range]::-webkit-slider-thumb {
+  background: var(--accent1);
+  box-shadow: 0 0 8px var(--accent1);
+}

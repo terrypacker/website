@@ -1,0 +1,148 @@
+/* =============================================================
+   THEME-TRADE.CSS
+   Finance / trading variant of the dark-amber theme.
+   Shared by: trade_styles.css, trade_backtest_styles.css
+
+   Load after base.css, instead of theme-amber.css.
+   Overrides font stack and refines the colour palette for the
+   trading sub-tree. Structural tokens are intentionally kept
+   compatible so shared component classes still work.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Backgrounds — slightly different layering from amber theme */
+  --bg:      #07090c;
+  --bg2:     #0e1115;
+  --bg3:     #141820;
+  --bg4:     #1a1f28;
+
+  /* Aliases used by theme-amber shared components */
+  --bg-base:   var(--bg);
+  --bg-panel:  var(--bg2);
+  --bg-panel2: var(--bg3);
+  --bg-input:  var(--bg4);
+
+  /* Borders */
+  --border:    #1e242f;
+  --border-hi: #283040;
+  --dim:       #283040;
+
+  /* Text */
+  --muted:     #888f9a;
+  --text:      #b8c4d4;
+  --hi:        #e2eaf6;
+
+  /* Aliases for shared components */
+  --text-primary: var(--hi);
+  --text-dim:     var(--muted);
+  --text-muted:   #5a6370;
+
+  /* Accent colours */
+  --accent:    #e8a020;
+  --green:     #36d672;
+  --red:       #f04545;
+  --blue:      #4fa3f7;
+  --purple:    #a87afc;
+
+  /* Amber-theme aliases so shared .btn/.panel still resolve */
+  --amber:         var(--accent);
+  --amber-dim:     #9a6010;
+  --amber-glow:    rgba(232, 160, 32, 0.08);
+  --accent-primary: var(--accent);
+
+  /* Typography — different from amber theme */
+  --mono:      'DM Mono', monospace;
+  --sans:      'Syne', sans-serif;
+  --font-mono: var(--mono);
+  --font-head: var(--sans);
+  --font-body: var(--sans);
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+/* Scanline atmospheric overlay (trade pages apply this to body) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px, rgba(0, 0, 0, 0.06) 4px
+  );
+}
+
+/* Override base range thumb */
+input[type=range]::-webkit-slider-thumb {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* ── SHARED HELP DRAWER (trade variant) ── */
+/* Both trade pages use a slide-in help drawer with the same structure;
+   the styles live here so neither page sheet needs to repeat them.    */
+
+.help-btn {
+  background: transparent;
+  border: 1px solid var(--dim);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1;
+}
+.help-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Overlay behind the drawer */
+.help-backdrop,
+.help-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+.help-backdrop.open,
+.help-overlay.open { display: block; opacity: 1; pointer-events: all; }
+
+/* Drawer shell */
+.help-drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 420px; max-width: 95vw;
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.help-drawer.open { transform: translateX(0); }
+
+/* Drawer scrollable body */
+.hd-body,
+.help-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  scroll-behavior: smooth;
+}
+.hd-body::-webkit-scrollbar,
+.help-body::-webkit-scrollbar { width: 4px; }
+.hd-body::-webkit-scrollbar-track,
+.help-body::-webkit-scrollbar-track { background: var(--bg3); }
+.hd-body::-webkit-scrollbar-thumb,
+.help-body::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }

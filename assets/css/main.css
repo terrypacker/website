@@ -1,0 +1,171 @@
+/* =============================================================
+   MAIN.CSS  —  Landing page
+   Load order:  base.css  →  theme-amber.css  →  main.css
+   ============================================================= */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── HEADER EXTRAS (landing-page specific) ── */
+.logo-wrap { display: flex; align-items: center; gap: 12px; }
+
+.header-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber);
+  background: var(--amber-glow);
+  border: 1px solid var(--amber-dim);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+
+/* ── MAIN AREA ── */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+/* ── INTRO BLOCK ── */
+.intro {
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: 52px;
+}
+.intro-heading {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.intro-line {
+  width: 40px; height: 1px;
+  background: var(--amber-dim);
+  margin: 0 auto 18px;
+}
+.intro-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  font-family: var(--font-body);
+}
+
+/* ── PROJECT CARDS GRID ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.project-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.project-card:hover {
+  border-color: var(--amber-dim);
+  background: var(--bg-panel2);
+}
+.project-card:hover .card-arrow { color: var(--amber); }
+.project-card:hover .card-tag   { border-color: var(--amber-dim); color: var(--amber); }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-panel2);
+  border-bottom: 1px solid var(--border);
+}
+.card-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  background: var(--bg-input);
+  border: 1px solid var(--border-hi);
+  padding: 1px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.card-index {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.card-body { padding: 18px 16px 16px; }
+.card-title {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: auto;
+}
+.card-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+.card-arrow {
+  font-size: 16px;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+/* ── FOOTER ── */
+.status-row  { display: flex; align-items: center; gap: 8px; }
+.status-dot  {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.footer-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
