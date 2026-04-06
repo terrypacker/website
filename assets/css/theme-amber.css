@@ -33,6 +33,7 @@ limitations under the License.
   --bg-panel:     #0f1217;
   --bg-panel2:    #141820;
   --bg-input:     #1a1f2a;
+  --bg-active:    #36383b;
 
   /* Borders */
   --border:       #222a38;
@@ -110,6 +111,10 @@ header, #header {
   color: var(--text-dim);
   letter-spacing: 0.08em;
 }
+/* ── TABS ── */
+.tab-content { display: none; }
+.tab .active { background-color: var(--bg-active); }
+.tab-header { }
 
 /* ── PANELS ── */
 .panel {
