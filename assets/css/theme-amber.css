@@ -115,6 +115,7 @@ header, #header {
 .tab-content { display: none; }
 .tab .active { background-color: var(--bg-active); }
 .tab-header { }
+.tab-header:hover {background-color: var(--amber-dim)}
 
 /* ── PANELS ── */
 .panel {
