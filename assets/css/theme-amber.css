@@ -200,7 +200,6 @@ header, #header {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 6px 14px;
   align-items: stretch;
 }
 .field-group {
