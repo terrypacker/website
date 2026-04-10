@@ -112,9 +112,13 @@ header, #header {
   letter-spacing: 0.08em;
 }
 /* ── TABS ── */
+.tab { display: flex; }
 .tab-content { display: none; }
 .tab .active { background-color: var(--bg-active); }
-.tab-header { }
+.tab-header {
+  padding: 8px 8px;
+  flex: 1;
+}
 .tab-header:hover {background-color: var(--amber-dim)}
 
 /* ── PANELS ── */
@@ -192,28 +196,39 @@ header, #header {
 .btn-xs { padding: 2px 8px; font-size: 10px; }
 
 /* ── FORM ELEMENTS ── */
-.field-label {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  display: block;
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 14px;
+  align-items: stretch;
+}
+.field-group {
+  flex: 1 0 30%;
 }
 
-.field-input, .field-select {
+.field-group label {
+  display: block;
+  font-size: 9px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.field-group input, textarea, .field-select {
   width: 100%;
   background: var(--bg-input);
   border: 1px solid var(--border-hi);
   border-radius: var(--radius);
   color: var(--text-primary);
   font-family: var(--font-mono);
-  font-size: 13px;
-  padding: 5px 8px;
+  font-size: 12px;
+  padding: 4px 6px;
   outline: none;
   transition: border-color 0.15s;
 }
-.field-input:focus, .field-select:focus { border-color: var(--amber-dim); }
+.field-group input:focus, .field-select:focus { border-color: var(--amber-dim); }
 .field-select option { background: var(--bg-panel2); }
 
 /* CHECKBOX STYLES */
