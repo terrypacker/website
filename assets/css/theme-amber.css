@@ -215,6 +215,7 @@ header, #header {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .field-group input, textarea, .field-select {
